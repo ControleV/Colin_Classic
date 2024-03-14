@@ -9,6 +9,8 @@ load_dotenv()
 
 bot = Bot(command_prefix = '.', intents = Intents.default(), help_command = None)
 
+botToken = input("Token do bot: ")
+
 async def load(bot):
     try:
         await bot.load_extension('Manager')
@@ -37,8 +39,7 @@ async def load(bot):
         print(f"Não foi possível carregar as cogs: {traceback.format_exc()}")
 
 async def main():
-    TOKEN = getenv("TOKEN")
     await load(bot)
-    await bot.start(TOKEN)
+    await bot.start(botToken)
 
 run(main())
