@@ -1,9 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages, Stats, DumpStats
-from discord import Interaction, app_commands, File
-from PIL import Image, ImageFont, ImageDraw
-from discord.ext import commands
-from requests import get
-from io import BytesIO
+from imports import *
 
 #colocar cargo em quem sobe de nível
 level = ["Labo rat", "Specimen", "Latex cristal", "Latex GOO", "Latex creature", "Biohazard Furry"]

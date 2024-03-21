@@ -1,10 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages, Stats
-from discord import app_commands, Interaction, File, Member
-from PIL import Image, ImageFont, ImageDraw, ImageOps
-from discord.ext import commands
-from requests import get
-from io import BytesIO
-import traceback
+from imports import *
 
 class Perfil(commands.Cog):
     def __init__(self, bot):

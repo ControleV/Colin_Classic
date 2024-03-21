@@ -1,7 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages, Stats, DumpStats
-from discord import app_commands, Interaction, Embed
-from discord.ext import commands
-from typing import List
+from imports import *
 
 class Banner(commands.Cog):
     def __init__(self, bot):

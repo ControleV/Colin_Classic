@@ -1,7 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages, ReadNickNames
-from discord import app_commands, Embed, Interaction
-from discord.ext import commands
-from random import choice
+from imports import *
 
 class Stars(commands.Cog):
     def __init__(self, bot):

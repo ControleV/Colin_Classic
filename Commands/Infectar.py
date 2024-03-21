@@ -1,7 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages, ReadNickNames
-from discord import Interaction, Embed, app_commands
-from random import choice, randint
-from discord.ext import commands
+from imports import *
 
 class Infectar(commands.Cog):
     def __init__(self, bot):

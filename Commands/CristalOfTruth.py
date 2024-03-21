@@ -1,7 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages
-from discord import app_commands, Interaction, Embed
-from discord.ext import commands
-from random import choice
+from imports import *
 
 class CrystalOfTruth(commands.Cog):
     def __init__(self, bot):

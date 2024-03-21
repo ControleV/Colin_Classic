@@ -1,14 +1,14 @@
-from json import dump, dumps, load
+import json
 
 def Stats():
     with open("Jsons/PrefJsons/UserStats.json", "r", encoding= 'utf-8') as a:
-        statsData = load(a)
+        statsData = json.load(a)
 
     return statsData
 
 def ReadGuildPreferences(guildId):
     with open("Jsons/PrefJsons/GuildPreferencies.json", "r", encoding= 'utf-8') as b:
-        guildData = load(b)
+        guildData = json.load(b)
 
     lingua = guildData[str(guildId)]["language"]
 
@@ -16,7 +16,7 @@ def ReadGuildPreferences(guildId):
 
 def ReadLanguages(lingua, command):
     with open("Jsons/Languages.json", "r", encoding= 'utf-8') as c:
-        languagesData = load(c)
+        languagesData = json.load(c)
 
     usado = languagesData[lingua][command]
 
@@ -24,24 +24,24 @@ def ReadLanguages(lingua, command):
 
 def ReadNickNames():
     with open("Jsons/GenericNickNames.json", "r") as d:
-        namesData = load(d)
+        namesData = json.load(d)
 
     return namesData
 
 def ReadArtes():
     with open("Jsons/artes.json", "r") as e:
-        artesData = load(e)
+        artesData = json.load(e)
 
     return artesData
 
 def DumpStats(data):
     with open('Jsons/PrefJsons/UserStats.json', 'w') as f:
-        dump(data, f, indent= 4)
+        json.dump(data, f, indent= 4)
     
 def DumpStatsList(data):
     with open('Jsons/PrefJsons/UserStats.json', 'w') as f:
-        dumps(data, f, indent= 4)
+        json.dumps(data, f, indent= 4)
 
 def DumpGuildPref(data):
     with open("Jsons/PrefJsons/GuildPreferencies.json", "w") as g:
-        dump(data, g, indent= 4)
+        json.dump(data, g, indent= 4)

@@ -1,8 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages
-from discord import app_commands, Interaction, File
-from PIL import Image, ImageDraw, ImageFont
-from discord.ext import commands
-from random import randint
+from imports import *
 
 class FurryOMeter(commands.Cog):
     def __init__(self, bot):

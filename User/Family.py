@@ -1,6 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages, Stats, DumpStats
-from discord import app_commands, Interaction, Embed
-from discord.ext import commands
+from imports import *
 
 class Family(commands.Cog):
     def __init__(self, bot):

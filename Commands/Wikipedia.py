@@ -1,8 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages
-from discord import app_commands, Interaction, Embed
-from wikipedia import summary, set_lang
-from discord.ext import commands
-import traceback
+from imports import *
 
 class WikipediaComando(commands.Cog):
     def __init__(self, bot):

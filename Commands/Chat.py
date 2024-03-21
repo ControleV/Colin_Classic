@@ -1,7 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages
-from discord import app_commands, Interaction, File
-from PIL import Image, ImageFont, ImageDraw
-from discord.ext import commands
+from imports import *
 
 class ChooseChat(commands.Cog):
     def __init__(self, bot):
@@ -15,42 +12,47 @@ class ChooseChat(commands.Cog):
         app_commands.Choice(name = 'Colin', value = 3),
     ])
     @app_commands.describe(texto = "Enter the text that will appear in the dialog box! (90 character limit!)")
-    async def on_chat(self, interaction: Interaction, rostos: app_commands.Choice[int], texto: str):
+    async def on_chat(self, interaction: Interaction, rostos: app_commands.Choice[int], texto: str = None):
         usado = ReadGuildPreferences(guildId = str(interaction.guild.id))
         tradutor = ReadLanguages(lingua= usado, command= "Chat")
+        
+        if texto is None:
+            texto = "Lorem Impsum Dolor Sit Amet"
 
-        if len(texto) >= 31 and len(texto) <= 61:
+        #Checar se o texto é muito grande, se sim, fatie-o
+        texto.strip()
 
-            text1 = texto[:30]
-            text2 = texto[30:60]
+        j = 0
+        limite = 30
+        a = 0
+                        
+        for i in texto:
+            j += 1
+                
+            if j > limite and i == ' ':
+                texto = texto[:j] + "\n" + texto[j:]
+                                
+                limite += a + 10
+                a = 0
+                    
+            if j > limite:
+                a += 1
 
-            textfinal = text1 + "\n" + text2
 
-        elif len(texto) > 61 and len(texto) < 91:
-            
-            text1 = texto[:30]
-            text2 = texto[30:60]
-            text3 = texto[60:90]
-
-            textfinal = text1 + "\n" + text2 + "\n" + text3
-
-
-        elif len(texto) >= 90:
+        if len(texto) >= 90:
 
             await interaction.response.send_message(str(tradutor[0]).format(interaction.user.name))
-
-        else:
-            textfinal = texto    
+            return
 
         img = Image.open("Images/chatchangedbase.png")
-        font = ImageFont.truetype("Fonts/upheavtt.ttf", 58)
+        font = ImageFont.truetype("Fonts/upheavtt.ttf", 50)
         draw = ImageDraw.Draw(img)
 
         avatar = Image.open(f"Images/{rostos.name}face.png")
         avatar = avatar.resize((270, 270))
 
         img.paste(avatar, (20, 20))
-        draw.text((300, 40), textfinal, (255, 255, 255), font = font)
+        draw.text((300, 40), texto, (255, 255, 255), font = font)
         img.save("Images/chat.png")
 
         await interaction.response.send_message(file = File("Images/chat.png"))

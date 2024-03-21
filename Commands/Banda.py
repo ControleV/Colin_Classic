@@ -1,8 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages, ReadNickNames
-from discord import app_commands, Interaction, Embed
-from random import choice, randint
-from discord.ext import commands
-from os import linesep
+from imports import *
 
 class Banda(commands.Cog):
     def __init__(self, bot):

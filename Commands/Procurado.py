@@ -1,10 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages
-from discord import app_commands, Interaction, Attachment, File
-from PIL import Image, ImageFont, ImageDraw
-from discord.ext import commands
-from random import randint
-from requests import get
-from io import BytesIO
+from imports import *
 
 class Procurado(commands.Cog):
     def __init__(self, bot):

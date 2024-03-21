@@ -1,8 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages, Stats, DumpStats
-from discord import app_commands, Interaction, Embed
-from discord.ext import commands
-import traceback
-import datetime
+from imports import *
 import json
 
 class Daily(commands.Cog):
@@ -24,16 +20,16 @@ class Daily(commands.Cog):
             user_id = str(interaction.user.id)
             if user_id in data:
                 # Obter a data do último uso do comando pelo usuário
-                last_used = datetime.datetime.fromisoformat(data[user_id])
+                last_used = datetime.fromisoformat(data[user_id])
 
 
                 # Verificar se a data é de hoje
-                if last_used.date() == datetime.datetime.utcnow().date():
+                if last_used.date() == datetime.now().date():
                     await interaction.followup.send("Você já usou o comando hoje! Tente novamente amanhã.")
                     return
 
             # Atualizar os dados do usuário no arquivo JSON
-            data[user_id] = datetime.datetime.utcnow().isoformat()
+            data[user_id] = datetime.now().isoformat()
             with open("Jsons/Daily.json", "w") as ub:
                 json.dump(data, ub)
 

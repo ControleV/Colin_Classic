@@ -1,6 +1,4 @@
-from discord import app_commands, Interaction
-from discord.ext import commands
-from json import load, dump
+from imports import *
 
 class MudarIdioma(commands.Cog):
 

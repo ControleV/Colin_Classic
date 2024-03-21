@@ -1,7 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages, ReadNickNames, Stats, DumpStats
-from discord import app_commands, Interaction, Embed
-from random import randint, choice
-from discord.ext import commands
+from imports import *
 
 class Fortnite(commands.Cog):
     def __init__(self, bot):

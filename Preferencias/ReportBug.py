@@ -1,8 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages
-from discord import app_commands, Interaction
-from discord.ext import commands
-import email.message
-import smtplib
+from imports import *
 
 class ReportBug(commands.Cog):
     def __init__(self, bot):
@@ -21,14 +17,14 @@ class ReportBug(commands.Cog):
         EMAIL_ADDRESS = 'victormotadev@gmail.com'
         EMAIL_PASSWORD = 'gcfhjpujqefbvbbq'
 
-        msg = email.message.Message()
+        msg = Message()
         msg['Subject'] = title
         msg['From'] = 'victormotadev@gmail.com'
         msg['To'] = 'victormotadev@gmail.com'
         msg.add_header("Content-Type", "text/html")
         msg.set_payload(f"{interaction.user} // {interaction.user.id} disse: {description}")
 
-        s = smtplib.SMTP('smtp.gmail.com: 587')
+        s = SMTP('smtp.gmail.com: 587')
         s.starttls()
 
         s.login(EMAIL_ADDRESS, EMAIL_PASSWORD)

@@ -1,9 +1,4 @@
-from discord.ext.commands import Bot
-from os import getenv, listdir
-from dotenv import load_dotenv
-from discord import Intents
-from asyncio import run
-import traceback
+from imports import *
 
 load_dotenv()
 

@@ -1,7 +1,4 @@
-from discord import Activity, ActivityType
-from discord.ext import commands, tasks
-from random import choice
-from asyncio import sleep
+from imports import *
 
 class Manager(commands.Cog):
     def __init__(self, bot):
@@ -16,7 +13,7 @@ class Manager(commands.Cog):
 
     @tasks.loop()
     async def status_task(self):
-        status = [f"/help - {len(self.bot.guilds)} servers!", "Have a nice dayy ;3", "/language -> Multi language support!!"]
+        status = [f"/help - estou em {len(self.bot.guilds)} servers!", "Have a nice dayy ;3", "/language -> Multi language support!!"]
         await self.bot.change_presence(activity = Activity(type = ActivityType.listening, name = str(choice(status))))
         await sleep(10)
 

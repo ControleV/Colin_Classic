@@ -1,8 +1,4 @@
-﻿from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages, ReadNickNames
-from discord import Interaction, Embed, app_commands
-from discord.ext import commands
-from os import linesep as line
-from random import choice
+﻿from imports import *
 
 class PtCommands(commands.Cog):
     def __init__(self, bot):
@@ -22,7 +18,7 @@ class PtCommands(commands.Cog):
             lista = nickNames["nicks"]
             friend = choice(lista)
 
-        embed = Embed(description= str(tradutor[0]).format(interaction.user.name, friend, line, friend), colour= 8007909)
+        embed = Embed(description= str(tradutor[0]).format(interaction.user.name, friend, linesep, friend), colour= 8007909)
 
         await interaction.response.send_message(embed = embed)
 
@@ -32,7 +28,7 @@ class PtCommands(commands.Cog):
         usado = ReadGuildPreferences(guildId = str(interaction.guild.id))
         tradutor = ReadLanguages(lingua= usado, command= "Ptcommands")
 
-        mensagem = [str(tradutor[1]).format(interaction.user.name, line), str(tradutor[2]).format(interaction.user.name)]
+        mensagem = [str(tradutor[1]).format(interaction.user.name, linesep), str(tradutor[2]).format(interaction.user.name)]
         aenviar = choice(mensagem)
 
         await interaction.user.send(aenviar)
@@ -47,7 +43,7 @@ class PtCommands(commands.Cog):
         botping = str(self.bot.latency)
         botping = botping[:4]
 
-        await interaction.response.send_message(f'🏓 Pong! ' + str(tradutor[4]).format(line, botping))
+        await interaction.response.send_message(f'🏓 Pong! ' + str(tradutor[4]).format(linesep, botping))
 
     @app_commands.command(name= "pong", description= "[Info] Shows client latency")
     @app_commands.checks.cooldown(1, 2, key = lambda i: (i.user.id))
@@ -58,7 +54,7 @@ class PtCommands(commands.Cog):
         botping = str(self.bot.latency)
         botping = botping[:4]
 
-        await interaction.response.send_message(f'🏓 Ping! ' + str(tradutor[4]).format(line, botping))
+        await interaction.response.send_message(f'🏓 Ping! ' + str(tradutor[4]).format(linesep, botping))
 
     @app_commands.command(name= "help", description= "[Info] A little help for beginners ^w^")
     @app_commands.checks.cooldown(1, 2, key = lambda i: (i.user.id))
@@ -66,7 +62,7 @@ class PtCommands(commands.Cog):
         usado = ReadGuildPreferences(guildId = str(interaction.guild.id))
         tradutor = ReadLanguages(lingua= usado, command= "Ptcommands")
 
-        embedhelp = Embed(description= str(tradutor[5]).format(interaction.user.name, line))
+        embedhelp = Embed(description= str(tradutor[5]).format(interaction.user.name, linesep))
 
         await interaction.response.send_message(embed = embedhelp)
 

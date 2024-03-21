@@ -1,8 +1,4 @@
-from Modules.CallJsonjs import ReadGuildPreferences, ReadLanguages
-from discord import Interaction, Embed
-from discord.ext import commands
-from discord import app_commands
-from random import randint
+from imports import *
 
 class Personagem(commands.Cog):
    def __init__(self, bot):
