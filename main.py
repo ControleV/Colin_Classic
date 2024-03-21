@@ -7,7 +7,7 @@ import traceback
 
 load_dotenv()
 
-bot = Bot(command_prefix = '.', intents = Intents.default(), help_command = None)
+bot = Bot(command_prefix = '.', intents = Intents.all(), help_command = None)
 
 botToken = input("Token do bot: ")
 

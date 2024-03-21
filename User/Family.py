@@ -38,3 +38,4 @@ class Family(commands.Cog):
 
 async def setup(bot):
     await bot.add_cog(Family(bot))
+    

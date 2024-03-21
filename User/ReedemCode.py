@@ -15,7 +15,7 @@ class Redeem(commands.Cog):
 
         stats = Stats()
 
-        avaiblecodes = ['tyjinvid92933475b,23pod-ik34yub8d7y674bnn wslpod91-3uif hg3tgd0o9aks-094ijk34o']
+        avaiblecodes = ['christmas', 'veterano']
 
         codeExists = False
 

@@ -701,5 +701,73 @@
             "prestigios": 0,
             "title": "Entity not defined Yet"
         }
+    },
+    "948692017154752572": {
+        "laranjas": 0,
+        "descricao": "Lorem Impsum dolor sit amet :)",
+        "banners": [
+            "default"
+        ],
+        "bannerativo": "default",
+        "college": "desconhecido",
+        "780880889219252235": {
+            "xp": 25,
+            "level": 1,
+            "prestigios": 0,
+            "title": "Entity not defined Yet"
+        }
+    },
+    "1200224884412928010": {
+        "laranjas": 0,
+        "descricao": "Lorem Impsum dolor sit amet :)",
+        "banners": [
+            "default"
+        ],
+        "bannerativo": "default",
+        "college": "desconhecido",
+        "780880889219252235": {
+            "xp": 0,
+            "level": 1,
+            "prestigios": 0,
+            "title": "Entity not defined Yet"
+        }
+    },
+    "1175157859378528307": {
+        "laranjas": 3200,
+        "descricao": "Lob\u00e3o pret\u00e3o que joga muito Rocket League e escuta funk pesad\u00e3o, e programa em Python tamb\u00e9m",
+        "banners": [
+            "default",
+            "christmas",
+            "veterano"
+        ],
+        "bannerativo": "veterano",
+        "college": "blacklatexzone",
+        "779047065836847134": {
+            "xp": 50,
+            "level": 1,
+            "prestigios": 0,
+            "title": "Entity not defined Yet"
+        }
+    },
+    "543572231427588098": {
+        "laranjas": 0,
+        "descricao": "Lorem Impsum dolor sit amet :)",
+        "banners": [
+            "default"
+        ],
+        "bannerativo": "default",
+        "college": "desconhecido",
+        "780880889219252235": {
+            "xp": 0,
+            "level": 1,
+            "prestigios": 0,
+            "title": "Entity not defined Yet"
+        },
+        "779047065836847134": {
+            "xp": 0,
+            "level": 1,
+            "prestigios": 0,
+            "title": "Entity not defined Yet"
+        }
     }
 }
