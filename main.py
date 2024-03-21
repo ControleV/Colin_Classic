@@ -4,8 +4,6 @@ load_dotenv()
 
 bot = Bot(command_prefix = '.', intents = Intents.all(), help_command = None)
 
-botToken = input("Token do bot: ")
-
 async def load(bot):
     try:
         await bot.load_extension('Manager')
@@ -25,16 +23,17 @@ async def load(bot):
                 cog = file[:-3]
                 await bot.load_extension(f'User.{cog}')
 
-        for file in listdir("Testes"): #ATENÇÃO RETIRAR ANTES DE QUALQUER COMMIT
-            if file.endswith(".py"): #ATENÇÃO RETIRAR ANTES DE QUALQUER COMMIT
-                cog = file[:-3] #ATENÇÃO RETIRAR ANTES DE QUALQUER COMMIT
-                await bot.load_extension(f'Testes.{cog}') #ATENÇÃO RETIRAR ANTES DE QUALQUER COMMIT
+        for file in listdir("Testes"):
+            if file.endswith(".py"):
+                cog = file[:-3]
+                await bot.load_extension(f'Testes.{cog}')
 
     except Exception as e:
         print(f"Não foi possível carregar as cogs: {traceback.format_exc()}")
 
 async def main():
+    Token = os.getenv("TOKEN")
     await load(bot)
-    await bot.start(botToken)
+    await bot.start(Token)
 
 run(main())
