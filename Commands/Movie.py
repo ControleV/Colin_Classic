@@ -6,7 +6,7 @@ class Movie(commands.Cog):
 
     @app_commands.command(name= "dance", description= "O que te faz dançar?")
     @app_commands.checks.cooldown(1, 2, key = lambda i: (i.user.id))
-    async def on_dance(self, interaction: Interaction, texto: str = None):
+    async def on_dance(self, interaction: Interaction, texto: str = None, member: Member = None):
         try:
             await interaction.response.defer()
             
@@ -32,38 +32,47 @@ class Movie(commands.Cog):
                 if j > limite:
                     a += 1
         
+        
+
             # Carregar o vídeo "Dancing" dentro da variável clip
-            clip = VideoFileClip("Movies/Dancing.mov")
+            clip1 = VideoFileClip("Movies/Dancing.mov")
 
 
 
             # diminuir o volume do clipe (volume x 0.8)
-            clip = clip.volumex(0.8)
+            clip1 = clip1.volumex(0.8)
 
 
 
             # Gerar um clipe de texto.
             txt_clip = TextClip(texto, fontsize = 50, color='white', stroke_width = 1, stroke_color = 'black')
+            txt_clip = txt_clip.set_pos('center').set_duration(t = clip1.duration)
+            
+            
+            
+            #Pegar a foto de perfil do usuário e salvar
+            if member == None:
+                setimage = get(interaction.user.avatar)
+            else:
+                setimage = get(member.avatar)
+                
+            setimage = Image.open(BytesIO(setimage.content))
+            setimage = setimage.resize((100, 100))
+            setimage.save("Images/Movies/userimage.png")
 
 
-
-
-            # Colocar o texto depois de 3 segundos que o clipe iniciou.
-            txt_clip = txt_clip.set_pos('center').set_duration(5)
-
-
-
+            #pegar a foto salva e criar um clipe.
+            profile_clip = ImageClip("Images/Movies/userimage.png").set_pos(('center', 'center'))
+            profile_clip = profile_clip.set_pos((20, 20)).set_duration(t = clip1.duration)
 
 
             # Compor o vídeo com o texto.
-            video = CompositeVideoClip([clip, txt_clip])
-
-
+            video = CompositeVideoClip([clip1, txt_clip, profile_clip])
 
 
 
             # Escreve o resultado em um arquivo.
-            video.write_videofile(filename = "Movies/Done/Dancing_Done.mp4", fps = 30)
+            video.write_videofile(filename = "Movies/Done/Dancing_Done.mp4", fps=24, remove_temp = True)
             
             
             
@@ -72,7 +81,7 @@ class Movie(commands.Cog):
         except:
             
             await interaction.followup.send("An error has ocurred...")
-            print(traceback.format_exc)
+            print(traceback.format_exc())
     
 async def setup(bot):
     await bot.add_cog(Movie(bot))
